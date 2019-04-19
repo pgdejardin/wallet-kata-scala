@@ -1,0 +1,8 @@
+# JetBrains
+.idea
+
+# SBT / Scala
+target/
+project/plugins/project/
+root
+
