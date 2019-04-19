@@ -1,7 +1,7 @@
 package pg.kata.wallet.domain.boundaries.api
 
 trait Rate {
-  def fromTo(from: Currency, to: Currency)(implicit wallet: Wallet): Amount
+  def fromTo(to: Currency)(implicit wallet: Wallet): Amount
 }
 
 case class Wallet(stock: Stock, currency: Currency)
