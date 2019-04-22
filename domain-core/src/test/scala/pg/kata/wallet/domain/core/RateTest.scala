@@ -13,7 +13,7 @@ class RateTest extends FlatSpec with Matchers {
     val rate = Rate(exchanges)
 
     // When
-    val amount = rate.fromTo(EUR)(wallet)
+    val amount = rate.to(EUR)(wallet)
 
     // Then
     amount should equal(Amount(Price(5), EUR))
@@ -26,7 +26,7 @@ class RateTest extends FlatSpec with Matchers {
     val rate = Rate(exchanges)
 
     // When
-    val amount = rate.fromTo(USD)(wallet)
+    val amount = rate.to(USD)(wallet)
 
     // Then
     amount should equal(Amount(Price(5 * 0.9), USD))
@@ -39,7 +39,7 @@ class RateTest extends FlatSpec with Matchers {
     val rate = Rate(exchanges)
 
     // When
-    val amount = rate.fromTo(USD)(wallet)
+    val amount = rate.to(USD)(wallet)
 
     // Then
     amount should equal(Amount(Price(5 * 100 + 10 * 100), USD))
