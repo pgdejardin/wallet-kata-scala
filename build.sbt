@@ -17,7 +17,14 @@ lazy val `domain-core` = project
     name := "domain-core"
   )
 
+lazy val `infrastructure` = project
+  .dependsOn(`domain-boundaries`)
+  .settings(
+    libraryDependencies ++= sharedDependencies,
+    name := "infrastructure"
+  )
+
 lazy val root = (project in file("."))
-  .aggregate(`domain-boundaries`, `domain-core`)
-  .dependsOn(`domain-boundaries`, `domain-core`)
+  .aggregate(`domain-boundaries`, `domain-core`, infrastructure)
+  .dependsOn(`domain-boundaries`, `domain-core`, infrastructure)
   .settings(name := "wallet")
